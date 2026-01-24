@@ -1,0 +1,138 @@
+
+{
+  "items": [
+    {
+      "id": "item_hacking_device",
+      "name": "Hacking device",
+      "type": "HACK",
+      "description": "Použij pro yneškodnění kamerového systému."
+    },
+    {
+      "id": "item_key",
+      "name": "Key",
+      "type": "UNDERGROUND",
+      "description": "Tento klíč ti poslouží k lepšímu pohybu po areálu."
+    },
+    {
+      "id": "item_key",
+      "name": "Car key",
+      "type": "VEHICLE",
+      "description": "Tento klíč ti umožní přepravu kontejneru"
+    },
+    {
+      "id": "item_gas",
+      "name": "Gas",
+      "type": "VEHICLE",
+      "description": "Kanistr ti pomůže, aby jsi mohl z areálu vůbec odjet."
+    },
+    {
+      "id": "item_code",
+      "name": "Access code",
+      "type": "OFFICE",
+      "descripton": "Bez tohoto kódu bys se odsuď nikdy nedostal"
+    },
+    {
+      "id": "item_uniform",
+      "name": "Guards uniform",
+      "type": "UNIFORM",
+      "description": "Převlečení ti zajistí méně napadný pohyb před strážemi"
+    }
+
+  ],
+  "characters": [
+    {
+      "id": "npc_pepa",
+      "name": "Pepa",
+      "role": "NPC",
+      "homeLocation":"none",
+      "notes": "Pepa je ve hře pouze jako vzdálený pomocník, není přítomen ve hře."
+    },
+    {
+      "id": "npc_franta",
+      "name": "Franta",
+      "role": "NPC",
+      "homeLocationId": "loc_mainGate",
+      "notes": "Pomáhá hráči s přepovědí rizika pro průchod arálem."
+    },
+    {
+      "id": "npc_karel",
+      "name": "Karel",
+      "role": "NPC",
+      "homeLocation": "loc_utilityRoom",
+      "notes": "Po rozhovoru dostane hráč klíč, díky kterému dostane přístup do podzemních chodeb."
+    },
+    {
+      "id": "player",
+      "name": "Hráč",
+      "role": "PLAYER",
+      "homeLocationId": "loc_mainGate",
+      "notes": "Postava za kterou hraje hráč."
+    }
+  ],
+  "locations": [
+
+    {
+      "id": "loc_mainGate",
+      "name": "Hlavní brána",
+      "description": "Výchozí a závěrečná lokace hry.",
+      "neighbors": "loc_mainPath"
+    },
+    {
+      "id": "loc_security",
+      "name": "Bezpečnostní místnost",
+      "description": "Lokace obsahující řídící systém kamerového systému.",
+      "neighbors": "loc_mainPath"
+    },
+    {
+      "id": "loc_utilityRoom",
+      "name": "Údržbářská dílna",
+      "description": "Lokace ve které pracuje Karel.",
+      "neighbors": "loc_mainPath"
+    },
+    {
+      "id": "loc_underGroundPath",
+      "name": "Podzemní chodby",
+      "description": "Umožňuje bezpečnější průchod mezi chodbami.",
+      "neighbors": "loc_mainPath"
+    },
+    {
+      "id": "loc_office",
+      "name": "Kancelář",
+      "description": "Místnost ve které se nachazejí důležité itemy.",
+      "neighbors": "loc_mainPath"
+    },
+    {
+      "id": "loc_garage",
+      "name": "Garáž",
+      "description": "Místnost ve které se nachazí kamion pro přepravu kontejneru.",
+      "neighbors": "loc_mainPath"
+    },
+    {
+      "id": "loc_changingRoom",
+      "name": "Šatna stráží",
+      "description": "Místnost ve které se nachazí uniforma stráží.",
+      "neighbors": "loc_mainPath"
+    },
+    {
+      "id": "loc_gasStorage",
+      "name": "Sklad paliva",
+      "description": "Najdi palivo potrebné pro odjezd z areálu.",
+      "neighbors": "loc_mainPath"
+    },
+    {
+      "id": "loc_hangar",
+      "name": "Hangár s kontejnerem",
+      "description": "Lokace ve které se nachází kontejner",
+      "neighbors": "loc_mainPath"
+    },
+    {
+      "id": "loc_mainPath",
+      "name": "Hlavni cesta",
+      "description": "Cesta propojující všechny lokace, která je strážená.",
+      "neighbors": "loc_hangar"
+    }
+
+
+  ]
+}
+
