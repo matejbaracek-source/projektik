@@ -135,7 +135,25 @@
       "description": "Cesta propojující všechny lokace, která je strážená.",
       "neighbors": ["loc_hangar", "loc_gasStorage", "loc_changingRoom", "loc_garage", "loc_office","loc_utilityRoom","loc_security", "loc_mainGate"]
     }
-
+  ],
+  "quest": [
+    {
+      "id": "q_deacitivate_cameras",
+      "title": "Vypni kamerový systém",
+      "requiredItems": ["item_hacking_device"],
+      "status": "NOT_STARTED"
+    },
+    {
+      "id": "q_open_underground_path",
+      "title": "Získej klíč k podzemním chodbám",
+      "requiredItem": "item_UnderGroundKey",
+      "status": "NOT_STARTED"
+    },
+    {
+      "id": "q_setup_car",
+      "title": "Připrav auto pro odjezd z areálu",
+      "status": "NOT_STARTED"
+    }
 
   ]
 }
