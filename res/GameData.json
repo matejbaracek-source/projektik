@@ -8,7 +8,7 @@
       "description": "Použij pro yneškodnění kamerového systému."
     },
     {
-      "id": "item_key",
+      "id": "item_UnderGroundKey",
       "name": "Key",
       "type": "UNDERGROUND",
       "description": "Tento klíč ti poslouží k lepšímu pohybu po areálu."
@@ -75,61 +75,65 @@
       "id": "loc_mainGate",
       "name": "Hlavní brána",
       "description": "Výchozí a závěrečná lokace hry.",
-      "neighbors": "loc_mainPath"
+      "neighbors": ["loc_mainPath","loc_underGroundPath"]
     },
     {
       "id": "loc_security",
       "name": "Bezpečnostní místnost",
       "description": "Lokace obsahující řídící systém kamerového systému.",
-      "neighbors": "loc_mainPath"
+      "neighbors": ["loc_mainPath","loc_underGroundPath"]
     },
     {
       "id": "loc_utilityRoom",
       "name": "Údržbářská dílna",
       "description": "Lokace ve které pracuje Karel.",
-      "neighbors": "loc_mainPath"
+      "neighbors": ["loc_mainPath","loc_underGroundPath"],
+      "lootTable": "item_UnderGroundKey"
     },
     {
       "id": "loc_underGroundPath",
       "name": "Podzemní chodby",
       "description": "Umožňuje bezpečnější průchod mezi chodbami.",
-      "neighbors": "loc_mainPath"
+      "neighbors": ["loc_mainPath","item_UnderGroundKey"]
     },
     {
       "id": "loc_office",
       "name": "Kancelář",
       "description": "Místnost ve které se nachazejí důležité itemy.",
-      "neighbors": "loc_mainPath"
+      "neighbors": ["loc_mainPath","item_UnderGroundKey"],
+      "lootTable": ["item_code", "item_key"]
     },
     {
       "id": "loc_garage",
       "name": "Garáž",
       "description": "Místnost ve které se nachazí kamion pro přepravu kontejneru.",
-      "neighbors": "loc_mainPath"
+      "neighbors": ["loc_mainPath","item_UnderGroundKey"]
     },
     {
       "id": "loc_changingRoom",
       "name": "Šatna stráží",
       "description": "Místnost ve které se nachazí uniforma stráží.",
-      "neighbors": "loc_mainPath"
+      "neighbors": ["loc_mainPath","item_UnderGroundKey"],
+      "lootTable": "item_uniform"
     },
     {
       "id": "loc_gasStorage",
       "name": "Sklad paliva",
       "description": "Najdi palivo potrebné pro odjezd z areálu.",
-      "neighbors": "loc_mainPath"
+      "neighbors": ["loc_mainPath","item_UnderGroundKey"],
+      "lootTable": "item_gas"
     },
     {
       "id": "loc_hangar",
       "name": "Hangár s kontejnerem",
       "description": "Lokace ve které se nachází kontejner",
-      "neighbors": "loc_mainPath"
+      "neighbors": ["loc_mainPath","item_UnderGroundKey"]
     },
     {
       "id": "loc_mainPath",
       "name": "Hlavni cesta",
       "description": "Cesta propojující všechny lokace, která je strážená.",
-      "neighbors": "loc_hangar"
+      "neighbors": ["loc_hangar", "loc_gasStorage", "loc_changingRoom", "loc_garage", "loc_office","loc_utilityRoom","loc_security", "loc_mainGate"]
     }
 
 
