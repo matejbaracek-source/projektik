@@ -1,7 +1,7 @@
 package Command;
 
 import game.GameData;
-import game.Location;
+
 import game.Player;
 
 public class Movement implements Command {
@@ -27,21 +27,8 @@ public class Movement implements Command {
         }
 
         String targetName = parts[1].trim();
-        Location currentLocation = player.getLocation();
 
-        // Projdeme sousedy (což jsou IDčka)
-        for (String neighborId : currentLocation.getNeighbors()) {
-            // Najdeme lokaci podle ID
-            Location neighborLocation = world.findLocation(neighborId);
-
-            // Porovnáme jména (ignoring case)
-            if (neighborLocation.getName().equalsIgnoreCase(targetName)) {
-                player.setLocation(neighborLocation);
-                return "Ši jsi do: " + neighborLocation.getName();
-            }
-        }
-
-        return "Tam se odsud jít nedá.";
+        return player.move(targetName, world);
     }
 
     @Override
@@ -49,5 +36,3 @@ public class Movement implements Command {
         return false;
     }
 }
-
-

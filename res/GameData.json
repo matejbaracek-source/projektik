@@ -88,46 +88,46 @@
       "name": "Údržbářská dílna",
       "description": "Lokace ve které pracuje Karel.",
       "neighbors": ["loc_mainPath","loc_underGroundPath"],
-      "lootTable": "item_UnderGroundKey"
+      "lootTable": ["item_UnderGroundKey"]
     },
     {
       "id": "loc_underGroundPath",
       "name": "Podzemní chodby",
       "description": "Umožňuje bezpečnější průchod mezi chodbami.",
-      "neighbors": ["loc_mainPath","item_UnderGroundKey"]
+      "neighbors": ["loc_mainPath","loc_underGroundPath"]
     },
     {
       "id": "loc_office",
       "name": "Kancelář",
       "description": "Místnost ve které se nachazejí důležité itemy.",
-      "neighbors": ["loc_mainPath","item_UnderGroundKey"],
+      "neighbors": ["loc_mainPath","loc_underGroundPath"],
       "lootTable": ["item_code", "item_key"]
     },
     {
       "id": "loc_garage",
       "name": "Garáž",
       "description": "Místnost ve které se nachazí kamion pro přepravu kontejneru.",
-      "neighbors": ["loc_mainPath","item_UnderGroundKey"]
+      "neighbors": ["loc_mainPath","loc_underGroundPath"]
     },
     {
       "id": "loc_changingRoom",
       "name": "Šatna stráží",
       "description": "Místnost ve které se nachazí uniforma stráží.",
-      "neighbors": ["loc_mainPath","item_UnderGroundKey"],
-      "lootTable": "item_uniform"
+      "neighbors": ["loc_mainPath","loc_underGroundPath"],
+      "lootTable": ["item_uniform"]
     },
     {
       "id": "loc_gasStorage",
       "name": "Sklad paliva",
       "description": "Najdi palivo potrebné pro odjezd z areálu.",
-      "neighbors": ["loc_mainPath","item_UnderGroundKey"],
-      "lootTable": "item_gas"
+      "neighbors": ["loc_mainPath","loc_underGroundPath"],
+      "lootTable": ["item_gas"]
     },
     {
       "id": "loc_hangar",
       "name": "Hangár s kontejnerem",
       "description": "Lokace ve které se nachází kontejner",
-      "neighbors": ["loc_mainPath","item_UnderGroundKey"]
+      "neighbors": ["loc_mainPath","loc_underGroundPath"]
     },
     {
       "id": "loc_mainPath",

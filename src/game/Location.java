@@ -1,5 +1,7 @@
 package game;
+
 import java.util.ArrayList;
+
 public class Location {
     private String id;
     private String name;
@@ -17,6 +19,10 @@ public class Location {
 
     public ArrayList<String> getNeighbors() {
         return neighbors;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     @Override
