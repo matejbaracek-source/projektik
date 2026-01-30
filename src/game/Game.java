@@ -1,6 +1,7 @@
 package game;
 
 import Command.*;
+import Command.Item;
 
 import java.util.HashMap;
 
@@ -20,6 +21,7 @@ public class Game {
         }
 
         // TODO pridat commands
+        commands.put("pouzij", new Item(player, world));
         commands.put("jdi", new Movement(player, world));
     }
 
@@ -48,6 +50,14 @@ public class Game {
                 }
             }
             System.out.println("Sousední lokace: " + exits.toString());
+
+            if (loc.getItems() != null && !loc.getItems().isEmpty()) {
+                java.util.StringJoiner items = new java.util.StringJoiner(", ");
+                for (game.Item item : loc.getItems()) {
+                    items.add(item.getName());
+                }
+                System.out.println("Předměty: " + items.toString());
+            }
 
             System.out.print("==> ");
             String cmd = sc.nextLine().trim();

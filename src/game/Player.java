@@ -24,4 +24,8 @@ public class Player {
         }
         return movementStrategy.moveTo(targetName, location, gameData, this);
     }
+
+    public String use(String targetName, GameData gameData) {
+        return "Tato funkce není zatím implementována.";
+    }
 }

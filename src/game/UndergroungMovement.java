@@ -1,10 +1,10 @@
 package game;
 
+import Command.Movement;
+
 import java.util.ArrayList;
 
-public class NormalMovement implements MovementStrategy {
-
-
+public class UndergroungMovement implements MovementStrategy {
 
     @Override
     public String moveTo(String targetName, Location currentLocation, GameData gameData, Player player) {
@@ -27,5 +27,7 @@ public class NormalMovement implements MovementStrategy {
 
         return "Tam se odsud jít nedá.";
     }
+
+
 
 }
