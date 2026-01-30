@@ -2,6 +2,8 @@ package game;
 
 import java.util.ArrayList;
 
+// vytvoření všech instanci pro lokace
+
 public class Location {
     private String id;
     private String name;

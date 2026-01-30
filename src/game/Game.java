@@ -23,8 +23,13 @@ public class Game {
         // TODO pridat commands
         commands.put("pouzij", new Item(player, world));
         commands.put("jdi", new Movement(player, world));
+        commands.put("vezmi", new PickUp(player, world));
+        commands.put("seber", new PickUp(player, world));
+        commands.put("prohledej", new Search(player));
+        commands.put("prozkoumej", new Search(player));
     }
 
+    //TODO rozdelit do vice metod
     public void start() {
         inicialization();
 
@@ -51,12 +56,27 @@ public class Game {
             }
             System.out.println("Sousední lokace: " + exits.toString());
 
-            if (loc.getItems() != null && !loc.getItems().isEmpty()) {
-                java.util.StringJoiner items = new java.util.StringJoiner(", ");
-                for (game.Item item : loc.getItems()) {
-                    items.add(item.getName());
+            // Items are now hidden and must be found using "prohledej"
+            /*
+             * if (loc.getItems() != null && !loc.getItems().isEmpty()) {
+             * java.util.StringJoiner items = new java.util.StringJoiner(", ");
+             * for (game.Item item : loc.getItems()) {
+             * items.add(item.getName());
+             * }
+             * System.out.println("Předměty: " + items.toString());
+             * }
+             */
+
+            // Display Inventory
+            java.util.ArrayList<game.Item> inventory = player.getInventory();
+            if (inventory.isEmpty()) {
+                System.out.println("Inventář: prázdný");
+            } else {
+                java.util.StringJoiner invItems = new java.util.StringJoiner(", ");
+                for (game.Item item : inventory) {
+                    invItems.add(item.getName());
                 }
-                System.out.println("Předměty: " + items.toString());
+                System.out.println("Inventář (" + inventory.size() + "/3): " + invItems.toString());
             }
 
             System.out.print("==> ");

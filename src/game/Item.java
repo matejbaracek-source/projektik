@@ -1,5 +1,8 @@
 package game;
 
+
+// vytvoření všech instancí pro itemy
+
 public class Item {
     private String id;
     private String name;
