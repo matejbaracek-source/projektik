@@ -27,9 +27,10 @@ public class Game {
         commands.put("seber", new PickUp(player, world));
         commands.put("prohledej", new Search(player));
         commands.put("prozkoumej", new Search(player));
+        commands.put("mluv", new Talk(player, world));
     }
 
-    //TODO rozdelit do vice metod
+    // TODO rozdelit do vice metod
     public void start() {
         inicialization();
 
@@ -44,6 +45,15 @@ public class Game {
 
             System.out.println("Jsi v lokaci: " + loc.getName());
             System.out.println(loc.getDescription());
+
+            // Seznam NPC v jednotlivých lokacích
+            if (loc.getCharacters() != null && !loc.getCharacters().isEmpty()) {
+                java.util.StringJoiner chars = new java.util.StringJoiner(", ");
+                for (GameCharacter c : loc.getCharacters()) {
+                    chars.add(c.getName());
+                }
+                System.out.println("Postavy: " + chars.toString());
+            }
 
             java.util.StringJoiner exits = new java.util.StringJoiner(", ");
             if (loc.getNeighbors() != null) {

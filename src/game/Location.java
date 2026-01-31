@@ -11,6 +11,19 @@ public class Location {
     private ArrayList<Item> items = new ArrayList<>();
     private ArrayList<String> neighbors;
     private ArrayList<String> lootTable;
+    private ArrayList<GameCharacter> characters = new ArrayList<>();
+
+    public void addCharacter(GameCharacter character) {
+        this.characters.add(character);
+    }
+
+    public void removeCharacter(GameCharacter character) {
+        this.characters.remove(character);
+    }
+
+    public ArrayList<GameCharacter> getCharacters() {
+        return characters;
+    }
 
     public void addItem(Item item) {
         this.items.add(item);

@@ -39,6 +39,7 @@ public class GameData {
                     new InputStreamReader(is, StandardCharsets.UTF_8),
                     GameData.class);
             data.initLocationItems();
+            data.initLocationCharacters();
             return data;
 
         } catch (Exception e) {
@@ -57,6 +58,19 @@ public class GameData {
                     if (item != null) {
                         location.addItem(item);
                     }
+                }
+            }
+        }
+    }
+
+    private void initLocationCharacters() {
+        if (characters == null)
+            return;
+        for (GameCharacter character : characters) {
+            if (character.getHomeLocationId() != null && !character.getHomeLocationId().equals("none")) {
+                Location loc = findLocation(character.getHomeLocationId());
+                if (loc != null) {
+                    loc.addCharacter(character);
                 }
             }
         }
