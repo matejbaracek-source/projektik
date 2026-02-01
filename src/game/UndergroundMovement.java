@@ -4,7 +4,7 @@ import Command.Movement;
 
 import java.util.ArrayList;
 
-public class UndergroungMovement implements MovementStrategy {
+public class UndergroundMovement implements MovementStrategy {
 
     @Override
     public String moveTo(String targetName, Location currentLocation, GameData gameData, Player player) {
@@ -27,7 +27,5 @@ public class UndergroungMovement implements MovementStrategy {
 
         return "Tam se odsud jít nedá.";
     }
-
-
 
 }

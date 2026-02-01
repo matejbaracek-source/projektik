@@ -40,6 +40,16 @@ public class Player {
         this.movementStrategy = movementStrategy;
     }
 
+    public String toggleMovementMode() {
+        if (movementStrategy instanceof NormalMovement) {
+            movementStrategy = new UndergroundMovement();
+            return "Pohyb změněn na: Underground";
+        } else {
+            movementStrategy = new NormalMovement();
+            return "Pohyb změněn na: Normal";
+        }
+    }
+
     public String move(String targetName, GameData gameData) {
         if (movementStrategy == null) {
             return "Nemůžeš se hýbat.";

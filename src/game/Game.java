@@ -28,6 +28,7 @@ public class Game {
         commands.put("prohledej", new Search(player));
         commands.put("prozkoumej", new Search(player));
         commands.put("mluv", new Talk(player, world));
+        commands.put("prepnipohyb", new SwitchMode(player));
     }
 
     // TODO rozdelit do vice metod
