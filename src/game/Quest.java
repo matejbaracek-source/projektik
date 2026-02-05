@@ -1,26 +1,26 @@
 package game;
 
+import java.util.List;
+
 public class Quest {
-    private int id;
+    private String id;
     private String title;
-    private String requiredItems;
-    private String status;
+    private String description;
 
-    public int getId() {return id;}
+    public String getId() {
+        return id;
+    }
 
-    public String getTitle() {return title;}
+    public String getTitle() {
+        return title;
+    }
 
-    public String getRequiredItems() {return requiredItems;}
-
-    public String getStatus() {return status;}
+    public String getDescription() {
+        return description;
+    }
 
     @Override
     public String toString() {
-        return "Quest{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", requiredItems='" + requiredItems + '\'' +
-                ", status='" + status + '\'' +
-                '}';
+        return title;
     }
 }

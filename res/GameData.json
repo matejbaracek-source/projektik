@@ -178,10 +178,12 @@
       ]
     }
   ],
-  "quest": [
+  "quests": [
     {
       "id": "q_deacitivate_cameras",
       "title": "Vypni kamerový systém",
+      "description": "Použij hackovací zařízení v bezpečnostní místnosti.",
+      "assignerId": "npc_pepa",
       "requiredItems": [
         "item_hacking_device"
       ],
@@ -190,12 +192,22 @@
     {
       "id": "q_open_underground_path",
       "title": "Získej klíč k podzemním chodbám",
-      "requiredItem": "item_UnderGroundKey",
+      "description": "Promluv si s Karlem a získej klíč.",
+      "assignerId": "npc_karel",
+      "requiredItems": [
+        "item_UnderGroundKey"
+      ],
       "status": "NOT_STARTED"
     },
     {
       "id": "q_setup_car",
       "title": "Připrav auto pro odjezd z areálu",
+      "description": "Sežeň klíče od auta a palivo.",
+      "assignerId": "npc_franta",
+      "requiredItems": [
+        "item_key",
+        "item_gas"
+      ],
       "status": "NOT_STARTED"
     }
   ]

@@ -31,6 +31,8 @@ public class Game {
         commands.put("prepnipohyb", new SwitchMode(player));
         commands.put("konec", new Exit());
         commands.put("exit", new Exit());
+        commands.put("ukoly", new Quests(world, player));
+        commands.put("quests", new Quests(world, player));
     }
 
     // TODO rozdelit do vice metod
@@ -107,7 +109,54 @@ public class Game {
             } else {
                 System.out.println("Neznámý příkaz.");
             }
+            checkQuests();
         }
+    }
+
+    private void checkQuests() {
+        if (world.quests == null)
+            return;
+        for (Quest q : world.quests) {
+            if (!player.isQuestCompleted(q.getId())) {
+                boolean completed = false;
+                switch (q.getId()) {
+                    case "q_deacitivate_cameras":
+                        // Logic: Have hacking device and be in security room? Or better: Use hacking
+                        // device.
+                        // For now, let's say: If player is in "loc_security" and has
+                        // "item_hacking_device".
+                        if (player.getLocation().getId().equals("loc_security") && hasItem("item_hacking_device")) {
+                            completed = true;
+                        }
+                        break;
+                    case "q_open_underground_path":
+                        // Logic: Have key.
+                        if (hasItem("item_UnderGroundKey")) {
+                            completed = true;
+                        }
+                        break;
+                    case "q_setup_car":
+                        // Logic: Have key and gas.
+                        if (hasItem("item_key") && hasItem("item_gas")) {
+                            completed = true;
+                        }
+                        break;
+                }
+                if (completed) {
+                    player.markQuestCompleted(q.getId());
+                    System.out.println("\n[SPLYNUO] Úkol dokončen: " + q.getTitle() + "\n");
+                }
+            }
+        }
+    }
+
+    private boolean hasItem(String itemId) {
+        for (game.Item item : player.getInventory()) {
+            if (item.getId().equals(itemId)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }
