@@ -8,6 +8,7 @@ public class Player {
 
     private MovementStrategy movementStrategy = new NormalMovement();
 
+    //adding items to inventory
     public boolean addItem(Item item) {
         if (inventory.size() < INVENTORY_CAPACITY) {
             inventory.add(item);
@@ -16,13 +17,16 @@ public class Player {
         return false;
     }
 
+    //removing items from inventory
     public void removeItem(Item item) {
         inventory.remove(item);
     }
 
+    //getter for inventory
     public java.util.ArrayList<Item> getInventory() {
         return inventory;
     }
+
 
     public boolean isInventoryFull() {
         return inventory.size() >= INVENTORY_CAPACITY;
@@ -40,6 +44,7 @@ public class Player {
         this.movementStrategy = movementStrategy;
     }
 
+    //method for switching between movements
     public String toggleMovementMode() {
         if (movementStrategy instanceof NormalMovement) {
             movementStrategy = new UndergroundMovement();
@@ -50,6 +55,7 @@ public class Player {
         }
     }
 
+    //method for moving must be active some movementStrategy
     public String move(String targetName, GameData gameData) {
         if (movementStrategy == null) {
             return "Nemůžeš se hýbat.";
@@ -57,6 +63,7 @@ public class Player {
         return movementStrategy.moveTo(targetName, location, gameData, this);
     }
 
+    //TODO implement this method to quests
     public String use(String targetName, GameData gameData) {
         return "Tato funkce není zatím implementována.";
     }

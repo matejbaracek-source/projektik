@@ -29,6 +29,8 @@ public class Game {
         commands.put("prozkoumej", new Search(player));
         commands.put("mluv", new Talk(player, world));
         commands.put("prepnipohyb", new SwitchMode(player));
+        commands.put("konec", new Exit());
+        commands.put("exit", new Exit());
     }
 
     // TODO rozdelit do vice metod
@@ -97,7 +99,11 @@ public class Game {
             String commandName = parts[0].toLowerCase();
 
             if (commands.containsKey(commandName)) {
-                System.out.println(commands.get(commandName).execute(cmd));
+                Command c = commands.get(commandName);
+                System.out.println(c.execute(cmd));
+                if (c.exit()) {
+                    break;
+                }
             } else {
                 System.out.println("Neznámý příkaz.");
             }

@@ -1,6 +1,7 @@
 package game;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class NormalMovement implements MovementStrategy {
 
@@ -28,4 +29,5 @@ public class NormalMovement implements MovementStrategy {
         return "Tam se odsud jít nedá.";
     }
 
-}
+
+    }

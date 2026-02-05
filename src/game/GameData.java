@@ -48,6 +48,7 @@ public class GameData {
 
     }
 
+    //getting items from each location
     private void initLocationItems() {
         if (locations == null)
             return;
@@ -63,6 +64,7 @@ public class GameData {
         }
     }
 
+    //adding each character to their home location
     private void initLocationCharacters() {
         if (characters == null)
             return;
@@ -76,6 +78,9 @@ public class GameData {
         }
     }
 
+
+
+    //finding right item by their id
     public Item findItem(String id) {
         if (items == null)
             return null;
@@ -87,12 +92,7 @@ public class GameData {
         return null;
     }
 
-    /**
-     * Finds a specific location by its identifier.
-     * 
-     * @param id the identifier of the location to be found
-     * @return the matching location
-     */
+    //finding right location by their id
     public Location findLocation(String id) {
         for (Location l : locations) {
             if (l.getId().equals(id)) {
