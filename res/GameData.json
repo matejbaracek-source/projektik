@@ -105,10 +105,15 @@
       "id": "loc_underGroundPath",
       "name": "Podzemní chodby",
       "description": "Umožňuje bezpečnější průchod mezi chodbami.",
-      "riskValue": 50,
       "neighbors": [
-        "loc_mainPath",
-        "loc_underGroundPath"
+        "loc_hangar",
+        "loc_gasStorage",
+        "loc_changingRoom",
+        "loc_garage",
+        "loc_office",
+        "loc_utilityRoom",
+        "loc_security",
+        "loc_mainGate"
       ]
     },
     {

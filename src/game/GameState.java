@@ -14,4 +14,24 @@ public class GameState {
     public static void clearCheckSafeFlag() {
         checkSafeUsed = false;
     }
+
+    private static boolean camerasActive = true;
+    private static boolean undergroundUnlocked = false;
+
+    public static boolean areCamerasActive() {
+        return camerasActive;
+    }
+
+    public static void deactivateCameras() {
+        camerasActive = false;
+    }
+
+    public static boolean isUndergroundUnlocked() {
+        return undergroundUnlocked;
+    }
+
+    public static void setUndergroundUnlocked(boolean unlocked) {
+        undergroundUnlocked = unlocked;
+    }
+
 }

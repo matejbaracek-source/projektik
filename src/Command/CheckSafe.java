@@ -35,7 +35,6 @@ public class CheckSafe implements Command {
 
         StringBuilder sb = new StringBuilder();
         sb.append("Franta se rozhlíží...\n");
-        boolean foundRisk = false;
 
         java.util.List<String> neighbors = player.getLocation().getNeighbors();
         if (neighbors == null || neighbors.isEmpty()) {
@@ -51,7 +50,6 @@ public class CheckSafe implements Command {
             String status = safe ? "bezpečná" : "NEBEZPEČNÁ (Budeš chycen!)";
 
             if (loc.getRiskValue() > 0) {
-                foundRisk = true;
                 sb.append("- Cesta do ").append(loc.getName())
                         .append(": ").append(status)
                         .append(" (Riziko: ").append(loc.getRiskValue()).append("%)")

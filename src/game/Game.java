@@ -1,7 +1,7 @@
 package game;
 
 import Command.*;
-import Command.Item;
+import Command.Use;
 
 import java.util.HashMap;
 
@@ -20,21 +20,23 @@ public class Game {
             player.setLocation(world.locations.get(0));
         }
 
+        // Give player starting items
+        game.Item hackingDevice = world.findItem("item_hacking_device");
+        if (hackingDevice != null) {
+            player.addItem(hackingDevice);
+        }
+
         // TODO pridat commands
-        commands.put("pouzij", new Item(player, world));
+        commands.put("pouzij", new Use(player, world));
         commands.put("jdi", new Movement(player, world));
         commands.put("vezmi", new PickUp(player, world));
         commands.put("seber", new PickUp(player, world));
         commands.put("prohledej", new Search(player));
-        commands.put("prozkoumej", new Search(player));
         commands.put("mluv", new Talk(player, world));
         commands.put("prepnipohyb", new SwitchMode(player));
         commands.put("konec", new Exit());
-        commands.put("exit", new Exit());
         commands.put("ukoly", new Quests(world, player));
-        commands.put("quests", new Quests(world, player));
         commands.put("rozhledni_se", new CheckSafe(player, world));
-        commands.put("check_safe", new CheckSafe(player, world));
     }
 
     // TODO rozdelit do vice metod
@@ -116,7 +118,14 @@ public class Game {
                 break;
             }
 
-            checkQuests();
+            // Check for setup car quest completion
+            if (!player.isQuestCompleted("q_setup_car")) {
+                if (player.hasItem("item_key") && player.hasItem("item_gas")) {
+                    player.markQuestCompleted("q_setup_car");
+                    System.out.println("\n[QUEST] Úkol splněn: Připrav auto pro odjezd z areálu!");
+                    System.out.println("Máš klíče i palivo. Teď už jen stačí dojet ke bráně!\n");
+                }
+            }
         }
     }
 
@@ -125,43 +134,6 @@ public class Game {
             return true;
         }
         return false;
-    }
-
-    private void checkQuests() {
-        if (world.quests == null)
-            return;
-        for (Quest q : world.quests) {
-            if (!player.isQuestCompleted(q.getId())) {
-                boolean completed = false;
-                switch (q.getId()) {
-                    case "q_deacitivate_cameras":
-                        // Logic: Have hacking device and be in security room? Or better: Use hacking
-                        // device.
-                        // For now, let's say: If player is in "loc_security" and has
-                        // "item_hacking_device".
-                        if (player.getLocation().getId().equals("loc_security") && hasItem("item_hacking_device")) {
-                            completed = true;
-                        }
-                        break;
-                    case "q_open_underground_path":
-                        // Logic: Have key.
-                        if (hasItem("item_UnderGroundKey")) {
-                            completed = true;
-                        }
-                        break;
-                    case "q_setup_car":
-                        // Logic: Have key and gas.
-                        if (hasItem("item_key") && hasItem("item_gas")) {
-                            completed = true;
-                        }
-                        break;
-                }
-                if (completed) {
-                    player.markQuestCompleted(q.getId());
-                    System.out.println("\n[SPLYNUO] Úkol dokončen: " + q.getTitle() + "\n");
-                }
-            }
-        }
     }
 
     private boolean hasItem(String itemId) {

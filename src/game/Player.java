@@ -42,6 +42,15 @@ public class Player {
         return inventory.size() >= INVENTORY_CAPACITY;
     }
 
+    public boolean hasItem(String itemId) {
+        for (Item item : inventory) {
+            if (item.getId().equals(itemId)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void setLocation(Location location) {
         this.location = location;
     }
@@ -54,9 +63,17 @@ public class Player {
         this.movementStrategy = movementStrategy;
     }
 
+    public MovementStrategy getMovementStrategy() {
+        return movementStrategy;
+    }
+
     // method for switching between movements
     public String toggleMovementMode() {
         if (movementStrategy instanceof NormalMovement) {
+            // Check if underground passages are unlocked
+            if (!GameState.isUndergroundUnlocked()) {
+                return "Podzemní chodby jsou zamčené! Musíš je nejprve odemknout klíčem (použij klíč).";
+            }
             movementStrategy = new UndergroundMovement();
             return "Pohyb změněn na: Underground";
         } else {

@@ -3,6 +3,7 @@ package Command;
 import game.GameData;
 import game.Player;
 import game.GameCharacter;
+import game.Item;
 
 public class Talk implements Command {
     private Player player;
@@ -26,6 +27,23 @@ public class Talk implements Command {
         if (player.getLocation().getCharacters() != null) {
             for (GameCharacter npc : player.getLocation().getCharacters()) {
                 if (npc.getName().equalsIgnoreCase(targetName)) {
+                    // Special logic for Karel
+                    if (npc.getId().equals("npc_karel")) {
+                        if (!player.isQuestCompleted("q_open_underground_path")) {
+                            Item key = data.findItem("item_UnderGroundKey");
+                            if (key != null) {
+                                if (player.addItem(key)) {
+                                    player.markQuestCompleted("q_open_underground_path");
+                                    return "Mluvíš s: " + npc.getName() + "\n" +
+                                            "\"Ahoj, jsem Karel. Tady máš klíč od podzemí, bude se ti hodit.\"\n" +
+                                            "Získal jsi: " + key.getName() + "!";
+                                } else {
+                                    return "Mluvíš s: " + npc.getName() + "\n" +
+                                            "\"Chtěl jsem ti dát klíč, ale máš plný inventář!\"";
+                                }
+                            }
+                        }
+                    }
                     return "Mluvíš s: " + npc.getName() + "\n" + npc.getNotes();
                 }
             }

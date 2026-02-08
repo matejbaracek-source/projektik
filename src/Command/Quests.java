@@ -25,9 +25,21 @@ public class Quests implements Command {
             boolean completed = player.isQuestCompleted(q.getId());
             sb.append("- ").append(q.getTitle());
             if (completed) {
-                sb.append(" [HOTOTO]");
+                sb.append(" [HOTOVO]");
             } else {
-                sb.append(" [NEHOTOTO]");
+                sb.append(" [NESPLNĚNO]");
+                if (q.getRequiredItems() != null && !q.getRequiredItems().isEmpty()) {
+                    java.util.StringJoiner missing = new java.util.StringJoiner(", ");
+                    for (String itemId : q.getRequiredItems()) {
+                        if (!player.hasItem(itemId)) {
+                            game.Item item = data.findItem(itemId);
+                            missing.add(item != null ? item.getName() : itemId);
+                        }
+                    }
+                    if (missing.length() > 0) {
+                        sb.append(" (Chybí: ").append(missing.toString()).append(")");
+                    }
+                }
             }
             sb.append("\n  ").append(q.getDescription()).append("\n");
         }

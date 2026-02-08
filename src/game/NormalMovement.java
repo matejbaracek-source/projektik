@@ -1,7 +1,6 @@
 package game;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class NormalMovement implements MovementStrategy {
 
@@ -19,6 +18,29 @@ public class NormalMovement implements MovementStrategy {
 
             // Porovnáme jména (ignoring case)
             if (neighborLocation.getName().equalsIgnoreCase(targetName)) {
+                // Check if target is underground and if it's unlocked
+                if (neighborLocation.getId().equals("loc_underGroundPath") && !GameState.isUndergroundUnlocked()) {
+                    return "Podzemní chodby jsou zamčené! Musíš je nejprve odemknout klíčem.";
+                }
+
+                // Check cameras BEFORE anything else
+                if (GameState.areCamerasActive()) {
+                    // Define safe path: mainGate → mainPath → security (or back)
+                    String currentId = currentLocation.getId();
+                    String targetId = neighborLocation.getId();
+
+                    boolean onSafePath = (currentId.equals("loc_mainGate") && targetId.equals("loc_mainPath")) ||
+                            (currentId.equals("loc_mainPath")
+                                    && (targetId.equals("loc_security") || targetId.equals("loc_mainGate")))
+                            ||
+                            (currentId.equals("loc_security") && targetId.equals("loc_mainPath"));
+
+                    if (!onSafePath) {
+                        player.setCaught(true);
+                        return "Kamery tě zachytily! Byl jsi chycen. Hra končí.";
+                    }
+                }
+
                 // Randomize risks BEFORE evaluating movement (unless CheckSafe was just used)
                 Risk riskManager = new Risk();
                 if (!GameState.wasCheckSafeUsed()) {
