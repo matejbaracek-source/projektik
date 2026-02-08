@@ -34,4 +34,14 @@ public class GameState {
         undergroundUnlocked = unlocked;
     }
 
+    private static boolean codeGiven = false;
+
+    public static boolean isCodeGiven() {
+        return codeGiven;
+    }
+
+    public static void setCodeGiven(boolean given) {
+        codeGiven = given;
+    }
+
 }

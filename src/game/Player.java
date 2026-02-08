@@ -8,6 +8,15 @@ public class Player {
     private java.util.Set<String> activeQuests = new java.util.HashSet<>();
     private static final int INVENTORY_CAPACITY = 3;
     private boolean caught = false;
+    private PlayerState state = new NormalState();
+
+    public PlayerState getState() {
+        return state;
+    }
+
+    public void setState(PlayerState state) {
+        this.state = state;
+    }
 
     public boolean isCaught() {
         return caught;

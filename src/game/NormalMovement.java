@@ -48,7 +48,7 @@ public class NormalMovement implements MovementStrategy {
                 }
                 GameState.clearCheckSafeFlag(); // Clear flag after using it
 
-                if (!riskManager.evaluateMovement(neighborLocation)) {
+                if (!riskManager.evaluateMovement(neighborLocation, player)) {
                     player.setCaught(true);
                     return "Cesta byla příliš nebezpečná! Byl jsi chycen strážemi. Hra končí.";
                 }

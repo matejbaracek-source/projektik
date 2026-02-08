@@ -37,15 +37,22 @@ public class Use implements Command {
         // Handle hacking device
 
         if (item.getId().equals("item_hacking_device")) {
-            return useHackingDevice();
+            String result = useHackingDevice();
+            if (result.contains("Úspěšně")) {
+                player.removeItem(item);
+            }
+            return result;
         } else if (item.getId().equals("item_UnderGroundKey")) {
             if (GameState.isUndergroundUnlocked()) {
                 return "Podzemní chodby jsou již odemčené.";
             }
             GameState.setUndergroundUnlocked(true);
+            player.removeItem(item);
             return "Odemkl jsi podzemní chodby! Nyní je můžeš používat k pohybu.";
-        } else if (item.getId().equals("q_open_underground_path")) {
-
+        } else if (item.getId().equals("item_uniform")) {
+            player.setState(new game.DisguisedState());
+            player.removeItem(item);
+            return "Převlékl jsi se do uniformy stráží. Nyní vypadáš jako jeden z nich!";
         }
 
         return "Tento item nelze použít.";

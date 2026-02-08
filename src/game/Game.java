@@ -37,6 +37,7 @@ public class Game {
         commands.put("konec", new Exit());
         commands.put("ukoly", new Quests(world, player));
         commands.put("rozhledni_se", new CheckSafe(player, world));
+        commands.put("dej", new Give(player, world));
     }
 
     // TODO rozdelit do vice metod
@@ -131,8 +132,29 @@ public class Game {
 
     private boolean checkGameOver() {
         if (player.isCaught()) {
+            System.out.println("\n--------------------------------------------------");
+            System.out.println("KONEC HRY: Byl jsi chycen ostrahou!");
+            System.out.println("--------------------------------------------------\n");
             return true;
         }
+
+        // Win condition check
+        if (player.isQuestCompleted("q_setup_car") && GameState.isCodeGiven() &&
+                player.getLocation() != null && player.getLocation().getId().equals("loc_mainGate") &&
+                player.getState() instanceof DisguisedState) {
+
+            System.out.println("\n==================================================");
+            System.out.println("           GRATULUJEME! VYHRÁL JSI!");
+            System.out.println("==================================================");
+            System.out.println("S přístupovým kódem odeslaným Pepovi a připraveným");
+            System.out.println("autem jsi projel hlavní branou dřív, než stihli");
+            System.out.println("vyhlásit poplach.");
+            System.out.println("\nKontejner je v bezpečí a ty jsi hrdinou dne!");
+            System.out.println("Děkujeme za zahrání naší hry.");
+            System.out.println("==================================================\n");
+            return true;
+        }
+
         return false;
     }
 

@@ -46,7 +46,7 @@ public class CheckSafe implements Command {
             if (loc == null)
                 continue;
 
-            boolean safe = riskManager.evaluateMovement(loc);
+            boolean safe = riskManager.evaluateMovement(loc, player);
             String status = safe ? "bezpečná" : "NEBEZPEČNÁ (Budeš chycen!)";
 
             if (loc.getRiskValue() > 0) {

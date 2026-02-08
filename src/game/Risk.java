@@ -7,12 +7,15 @@ public class Risk {
     Random rand = new Random();
     ArrayList<Integer> risks = new ArrayList<Integer>();
 
-    public boolean evaluateMovement(Location target) {
+    public boolean evaluateMovement(Location target, Player player) {
         // Use the pre-calculated roll stored in the location
         // This makes the risk check deterministic between moves (predictable).
         int chance = target.getDangerRoll();
 
-        return chance >= target.getRiskValue();
+        // Final risk value modified by player state (e.g. uniform)
+        int modifiedRiskValue = (int) (target.getRiskValue() * player.getState().getRiskModifier());
+
+        return chance >= modifiedRiskValue;
     }
 
     public void randomizeRisks(GameData gameData) {
