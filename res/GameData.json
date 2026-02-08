@@ -49,8 +49,8 @@
       "id": "npc_franta",
       "name": "Franta",
       "role": "NPC",
-      "homeLocationId": "loc_mainGate",
-      "notes": "Pomáhá hráči s přepovědí rizika pro průchod arálem."
+      "homeLocationId": "none",
+      "notes": "Pomáhá hráči s přepovědí rizika pro průchod arálem (je stále s hráčem)."
     },
     {
       "id": "npc_karel",
@@ -72,6 +72,7 @@
       "id": "loc_mainGate",
       "name": "Hlavní brána",
       "description": "Výchozí a závěrečná lokace hry.",
+      "riskValue": 50,
       "neighbors": [
         "loc_mainPath",
         "loc_underGroundPath"
@@ -81,6 +82,7 @@
       "id": "loc_security",
       "name": "Bezpečnostní místnost",
       "description": "Lokace obsahující řídící systém kamerového systému.",
+      "riskValue": 50,
       "neighbors": [
         "loc_mainPath",
         "loc_underGroundPath"
@@ -90,6 +92,7 @@
       "id": "loc_utilityRoom",
       "name": "Údržbářská dílna",
       "description": "Lokace ve které pracuje Karel.",
+      "riskValue": 50,
       "neighbors": [
         "loc_mainPath",
         "loc_underGroundPath"
@@ -102,6 +105,7 @@
       "id": "loc_underGroundPath",
       "name": "Podzemní chodby",
       "description": "Umožňuje bezpečnější průchod mezi chodbami.",
+      "riskValue": 50,
       "neighbors": [
         "loc_mainPath",
         "loc_underGroundPath"
@@ -111,6 +115,7 @@
       "id": "loc_office",
       "name": "Kancelář",
       "description": "Místnost ve které se nachazejí důležité itemy.",
+      "riskValue": 50,
       "neighbors": [
         "loc_mainPath",
         "loc_underGroundPath"
@@ -124,6 +129,7 @@
       "id": "loc_garage",
       "name": "Garáž",
       "description": "Místnost ve které se nachazí kamion pro přepravu kontejneru.",
+      "riskValue": 50,
       "neighbors": [
         "loc_mainPath",
         "loc_underGroundPath"
@@ -133,6 +139,7 @@
       "id": "loc_changingRoom",
       "name": "Šatna stráží",
       "description": "Místnost ve které se nachazí uniforma stráží.",
+      "riskValue": 50,
       "neighbors": [
         "loc_mainPath",
         "loc_underGroundPath"
@@ -145,6 +152,7 @@
       "id": "loc_gasStorage",
       "name": "Sklad paliva",
       "description": "Najdi palivo potrebné pro odjezd z areálu.",
+      "riskValue": 50,
       "neighbors": [
         "loc_mainPath",
         "loc_underGroundPath"
@@ -157,6 +165,7 @@
       "id": "loc_hangar",
       "name": "Hangár s kontejnerem",
       "description": "Lokace ve které se nachází kontejner",
+      "riskValue": 50,
       "neighbors": [
         "loc_mainPath",
         "loc_underGroundPath"
@@ -166,6 +175,7 @@
       "id": "loc_mainPath",
       "name": "Hlavni cesta",
       "description": "Cesta propojující všechny lokace, která je strážená.",
+      "riskValue": 50,
       "neighbors": [
         "loc_hangar",
         "loc_gasStorage",

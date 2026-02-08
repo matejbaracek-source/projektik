@@ -33,6 +33,8 @@ public class Game {
         commands.put("exit", new Exit());
         commands.put("ukoly", new Quests(world, player));
         commands.put("quests", new Quests(world, player));
+        commands.put("rozhledni_se", new CheckSafe(player, world));
+        commands.put("check_safe", new CheckSafe(player, world));
     }
 
     // TODO rozdelit do vice metod
@@ -109,8 +111,20 @@ public class Game {
             } else {
                 System.out.println("Neznámý příkaz.");
             }
+
+            if (checkGameOver()) {
+                break;
+            }
+
             checkQuests();
         }
+    }
+
+    private boolean checkGameOver() {
+        if (player.isCaught()) {
+            return true;
+        }
+        return false;
     }
 
     private void checkQuests() {

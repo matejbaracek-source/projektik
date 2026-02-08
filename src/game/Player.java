@@ -7,6 +7,15 @@ public class Player {
     private java.util.Set<String> completedQuests = new java.util.HashSet<>();
     private java.util.Set<String> activeQuests = new java.util.HashSet<>();
     private static final int INVENTORY_CAPACITY = 3;
+    private boolean caught = false;
+
+    public boolean isCaught() {
+        return caught;
+    }
+
+    public void setCaught(boolean caught) {
+        this.caught = caught;
+    }
 
     private MovementStrategy movementStrategy = new NormalMovement();
 

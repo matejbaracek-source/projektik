@@ -48,7 +48,7 @@ public class GameData {
 
     }
 
-    //getting items from each location
+    // getting items from each location
     private void initLocationItems() {
         if (locations == null)
             return;
@@ -64,7 +64,7 @@ public class GameData {
         }
     }
 
-    //adding each character to their home location
+    // adding each character to their home location
     private void initLocationCharacters() {
         if (characters == null)
             return;
@@ -78,9 +78,7 @@ public class GameData {
         }
     }
 
-
-
-    //finding right item by their id
+    // finding right item by their id
     public Item findItem(String id) {
         if (items == null)
             return null;
@@ -92,7 +90,7 @@ public class GameData {
         return null;
     }
 
-    //finding right location by their id
+    // finding right location by their id
     public Location findLocation(String id) {
         for (Location l : locations) {
             if (l.getId().equals(id)) {
@@ -100,6 +98,17 @@ public class GameData {
             }
         }
         throw new IllegalArgumentException("Neexistuje lokace s id: " + id);
+    }
+
+    public GameCharacter findCharacter(String id) {
+        if (characters == null)
+            return null;
+        for (GameCharacter c : characters) {
+            if (c.getId().equals(id)) {
+                return c;
+            }
+        }
+        return null;
     }
 
 }

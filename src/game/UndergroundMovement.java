@@ -20,7 +20,6 @@ public class UndergroundMovement implements MovementStrategy {
 
             // Porovnáme jména (ignoring case)
             if (neighborLocation.getName().equalsIgnoreCase(targetName)) {
-                player.setLocation(neighborLocation);
                 return "Šel jsi do: " + neighborLocation.getName();
             }
         }

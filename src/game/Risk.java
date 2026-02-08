@@ -6,14 +6,34 @@ import java.util.ArrayList;
 public class Risk {
     Random rand = new Random();
     ArrayList<Integer> risks = new ArrayList<Integer>();
-    public boolean risk() {
-        int risk = rand.nextInt(20);
-        risks.add(risk);
-        if(risk < 10) {
-            return true;
-        }
-        return false;
+
+    public boolean evaluateMovement(Location target) {
+        // Use the pre-calculated roll stored in the location
+        // This makes the risk check deterministic between moves (predictable).
+        int chance = target.getDangerRoll();
+
+        return chance >= target.getRiskValue();
     }
 
+    public void randomizeRisks(GameData gameData) {
+        if (gameData.locations == null)
+            return;
 
+        for (Location loc : gameData.locations) {
+            // Update the danger roll for every location
+            loc.setDangerRoll(rand.nextInt(100)); // 0-99
+
+            // Only change risk for locations that are already risky (risk > 0)
+            // Or maybe check if it's NOT safe (risk != 0)
+            // Assuming "safe" locations stay safe (risk 0).
+            if (loc.getRiskValue() > 0) {
+                // Assign a new random risk between 10 and 90?
+                // Or completely random 0-100?
+                // "The risk value have to change with every move"
+                // Let's make it 10-90 to avoid 0 (safe) unless intended, and 100 (instant
+                // death).
+                loc.setRiskValue(rand.nextInt(81) + 10); // 10 to 90
+            }
+        }
+    }
 }

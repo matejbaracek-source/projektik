@@ -57,6 +57,26 @@ public class Location {
         return description;
     }
 
+    private int riskValue;
+
+    public int getRiskValue() {
+        return riskValue;
+    }
+
+    public void setRiskValue(int riskValue) {
+        this.riskValue = riskValue;
+    }
+
+    private int dangerRoll;
+
+    public int getDangerRoll() {
+        return dangerRoll;
+    }
+
+    public void setDangerRoll(int dangerRoll) {
+        this.dangerRoll = dangerRoll;
+    }
+
     @Override
     public String toString() {
         return "game.Location{" +
