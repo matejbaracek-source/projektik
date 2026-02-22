@@ -38,6 +38,8 @@ public class Game {
         commands.put("ukoly", new Quests(world, player));
         commands.put("rozhledni_se", new CheckSafe(player, world));
         commands.put("dej", new Give(player, world));
+        Help helpCommand = new Help(commands.keySet());
+        commands.put("pomoc", helpCommand);
     }
 
     // TODO rozdelit do vice metod
