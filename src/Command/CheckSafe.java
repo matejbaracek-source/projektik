@@ -36,6 +36,16 @@ public class CheckSafe implements Command {
         StringBuilder sb = new StringBuilder();
         sb.append("Franta se rozhlíží...\n");
 
+        if (player.getMovementStrategy() instanceof game.UndergroundMovement) {
+            sb.append("Franta kontroluje podzemní tunely...\n");
+            for (Location loc : gameData.locations) {
+                if (loc.hasUndergroundAccess() && loc != player.getLocation()) {
+                    sb.append("- ").append(loc.getName()).append(" (přes tunel)\n");
+                }
+            }
+            return sb.toString().trim();
+        }
+
         java.util.List<String> neighbors = player.getLocation().getNeighbors();
         if (neighbors == null || neighbors.isEmpty()) {
             return "Odsud nikam vést cesta nemůže.";
@@ -52,7 +62,6 @@ public class CheckSafe implements Command {
             if (loc.getRiskValue() > 0) {
                 sb.append("- Cesta do ").append(loc.getName())
                         .append(": ").append(status)
-                        .append(" (Riziko: ").append(loc.getRiskValue()).append("%)")
                         .append("\n");
             } else {
 

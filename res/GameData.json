@@ -73,9 +73,9 @@
       "name": "Hlavní brána",
       "description": "Výchozí a závěrečná lokace hry.",
       "riskValue": 50,
+      "undergroundAccess": true,
       "neighbors": [
-        "loc_mainPath",
-        "loc_underGroundPath"
+        "loc_mainPath"
       ]
     },
     {
@@ -83,9 +83,9 @@
       "name": "Bezpečnostní místnost",
       "description": "Lokace obsahující řídící systém kamerového systému.",
       "riskValue": 50,
+      "undergroundAccess": true,
       "neighbors": [
-        "loc_mainPath",
-        "loc_underGroundPath"
+        "loc_mainPath"
       ]
     },
     {
@@ -93,27 +93,9 @@
       "name": "Údržbářská dílna",
       "description": "Lokace ve které pracuje Karel.",
       "riskValue": 50,
+      "undergroundAccess": true,
       "neighbors": [
-        "loc_mainPath",
-        "loc_underGroundPath"
-      ],
-      "lootTable": [
-        "item_UnderGroundKey"
-      ]
-    },
-    {
-      "id": "loc_underGroundPath",
-      "name": "Podzemní chodby",
-      "description": "Umožňuje bezpečnější průchod mezi chodbami.",
-      "neighbors": [
-        "loc_hangar",
-        "loc_gasStorage",
-        "loc_changingRoom",
-        "loc_garage",
-        "loc_office",
-        "loc_utilityRoom",
-        "loc_security",
-        "loc_mainGate"
+        "loc_mainPath"
       ]
     },
     {
@@ -121,9 +103,9 @@
       "name": "Kancelář",
       "description": "Místnost ve které se nachazejí důležité itemy.",
       "riskValue": 50,
+      "undergroundAccess": true,
       "neighbors": [
-        "loc_mainPath",
-        "loc_underGroundPath"
+        "loc_mainPath"
       ],
       "lootTable": [
         "item_code",
@@ -135,9 +117,9 @@
       "name": "Garáž",
       "description": "Místnost ve které se nachazí kamion pro přepravu kontejneru.",
       "riskValue": 50,
+      "undergroundAccess": true,
       "neighbors": [
-        "loc_mainPath",
-        "loc_underGroundPath"
+        "loc_mainPath"
       ]
     },
     {
@@ -145,9 +127,9 @@
       "name": "Šatna stráží",
       "description": "Místnost ve které se nachazí uniforma stráží.",
       "riskValue": 50,
+      "undergroundAccess": true,
       "neighbors": [
-        "loc_mainPath",
-        "loc_underGroundPath"
+        "loc_mainPath"
       ],
       "lootTable": [
         "item_uniform"
@@ -158,9 +140,9 @@
       "name": "Sklad paliva",
       "description": "Najdi palivo potrebné pro odjezd z areálu.",
       "riskValue": 50,
+      "undergroundAccess": true,
       "neighbors": [
-        "loc_mainPath",
-        "loc_underGroundPath"
+        "loc_mainPath"
       ],
       "lootTable": [
         "item_gas"
@@ -171,9 +153,9 @@
       "name": "Hangár s kontejnerem",
       "description": "Lokace ve které se nachází kontejner",
       "riskValue": 50,
+      "undergroundAccess": true,
       "neighbors": [
-        "loc_mainPath",
-        "loc_underGroundPath"
+        "loc_mainPath"
       ]
     },
     {

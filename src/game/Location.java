@@ -57,6 +57,16 @@ public class Location {
         return description;
     }
 
+    private boolean undergroundAccess;
+
+    public boolean hasUndergroundAccess() {
+        return undergroundAccess;
+    }
+
+    public void setUndergroundAccess(boolean undergroundAccess) {
+        this.undergroundAccess = undergroundAccess;
+    }
+
     private int riskValue;
 
     public int getRiskValue() {
