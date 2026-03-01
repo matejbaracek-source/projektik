@@ -9,9 +9,29 @@ public class Location {
     private String name;
     private String description;
     private ArrayList<Item> items = new ArrayList<>();
-    private ArrayList<String> neighbors;
-    private ArrayList<String> lootTable;
+    private ArrayList<String> neighbors = new ArrayList<>();
+    private ArrayList<String> lootTable = new ArrayList<>();
     private ArrayList<GameCharacter> characters = new ArrayList<>();
+
+    public Location() {
+    }
+
+    public Location(String id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setNeighbors(ArrayList<String> neighbors) {
+        this.neighbors = neighbors;
+    }
 
     public void addCharacter(GameCharacter character) {
         this.characters.add(character);

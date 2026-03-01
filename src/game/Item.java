@@ -1,6 +1,5 @@
 package game;
 
-
 //all instances for item
 
 public class Item {
@@ -9,13 +8,28 @@ public class Item {
     private String type;
     private String description;
 
-    public String getId() {return id;}
+    public Item(String id, String name, String type, String description) {
+        this.id = id;
+        this.name = name;
+        this.type = type;
+        this.description = description;
+    }
 
-    public String getName() {return name;}
+    public String getId() {
+        return id;
+    }
 
-    public String getType() {return type;}
+    public String getName() {
+        return name;
+    }
 
-    public String getDescription() {return description;}
+    public String getType() {
+        return type;
+    }
+
+    public String getDescription() {
+        return description;
+    }
 
     @Override
     public String toString() {
@@ -27,4 +41,3 @@ public class Item {
                 '}';
     }
 }
-

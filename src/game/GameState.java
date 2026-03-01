@@ -26,6 +26,10 @@ public class GameState {
         camerasActive = false;
     }
 
+    public static void activateCameras() {
+        camerasActive = true;
+    }
+
     public static boolean isUndergroundUnlocked() {
         return undergroundUnlocked;
     }
