@@ -1,18 +1,25 @@
 package Command;
 
-import game.GameData;
 import game.Player;
 import game.GameState;
 import game.Item;
 import game.GameCharacter;
 
+/**
+ * Command for giving items to characters.
+ */
 public class Give implements Command {
     private Player player;
-    private GameData data;
 
-    public Give(Player player, GameData data) {
+    /**
+     * Constructs a Give command.
+     *
+     * @param player The player giving the item.
+     * @param data   The game data (unused for local NPCs but potentially for
+     *               remote).
+     */
+    public Give(Player player, game.GameData data) {
         this.player = player;
-        this.data = data;
     }
 
     @Override

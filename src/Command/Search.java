@@ -4,14 +4,29 @@ import game.Player;
 import game.Location;
 import game.Item;
 
+/**
+ * Command for searching the current location for items.
+ */
 public class Search implements Command {
 
     private final Player player;
 
+    /**
+     * Constructs a Search command.
+     *
+     * @param player The player searching the location.
+     */
     public Search(Player player) {
         this.player = player;
     }
 
+    /**
+     * Executes the search command.
+     * Lists all items currently in the location.
+     *
+     * @param command The search command string.
+     * @return A message listing the found items.
+     */
     @Override
     public String execute(String command) {
         Location currentLocation = player.getLocation();

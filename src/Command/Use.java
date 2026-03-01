@@ -1,15 +1,23 @@
 package Command;
 
-import game.GameData;
 import game.GameState;
 import game.Player;
 import game.Item;
 
+/**
+ * Command for using items from the player's inventory.
+ */
 public class Use implements Command {
 
     private final Player player;
 
-    public Use(Player player, GameData world) {
+    /**
+     * Constructs a Use command.
+     *
+     * @param player The player using the item.
+     * @param world  The game data (unused in current constructor).
+     */
+    public Use(Player player, game.GameData world) {
         this.player = player;
     }
 

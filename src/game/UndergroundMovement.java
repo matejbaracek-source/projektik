@@ -1,9 +1,21 @@
 package game;
 
-import Command.Movement;
-
+/**
+ * Represents a movement strategy through underground tunnels.
+ * This movement is safe (no risk or cameras) but only available in specific
+ * locations.
+ */
 public class UndergroundMovement implements MovementStrategy {
 
+    /**
+     * Moves the player through tunnels to any other location with tunnel access.
+     *
+     * @param targetName      The name of the target location.
+     * @param currentLocation The current location of the player.
+     * @param gameData        The game data.
+     * @param player          The player object.
+     * @return A message describing the outcome of the movement.
+     */
     @Override
     public String moveTo(String targetName, Location currentLocation, GameData gameData, Player player) {
         if (!currentLocation.hasUndergroundAccess()) {

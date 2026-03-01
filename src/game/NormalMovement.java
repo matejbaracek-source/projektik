@@ -2,8 +2,21 @@ package game;
 
 import java.util.ArrayList;
 
+/**
+ * Represents the standard movement strategy through connected locations.
+ * Includes risk evaluation and camera detection logic.
+ */
 public class NormalMovement implements MovementStrategy {
 
+    /**
+     * Moves the player to a target location if it is a neighbor and safe.
+     *
+     * @param targetName      The name of the target location.
+     * @param currentLocation The current location of the player.
+     * @param gameData        The game data.
+     * @param player          The player object.
+     * @return A message describing the outcome of the movement.
+     */
     @Override
     public String moveTo(String targetName, Location currentLocation, GameData gameData, Player player) {
         // Projdeme sousedy (což jsou IDčka)

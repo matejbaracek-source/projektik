@@ -5,12 +5,20 @@ import Command.Use;
 
 import java.util.HashMap;
 
+/**
+ * The main game engine class.
+ * Manages the game loop, player state, world data, and command execution.
+ */
 public class Game {
 
     private GameData world;
     private Player player;
     private HashMap<String, Command> commands;
 
+    /**
+     * Initializes the game.
+     * Loads world data, sets up the player, and registers commands.
+     */
     public void inicialization() {
         commands = new HashMap<>();
         world = GameData.loadGameDataFromResources("/GameData.json");
@@ -43,6 +51,10 @@ public class Game {
     }
 
     // TODO rozdelit do vice metod
+    /**
+     * Starts the main game loop.
+     * Continues until a win or loss condition is met or the user exits.
+     */
     public void start() {
         inicialization();
 
@@ -132,6 +144,11 @@ public class Game {
         }
     }
 
+    /**
+     * Checks if the game has ended due to a win or loss state.
+     *
+     * @return true if the game is over, false otherwise.
+     */
     private boolean checkGameOver() {
         if (player.isCaught()) {
             System.out.println("\n--------------------------------------------------");
@@ -160,6 +177,12 @@ public class Game {
         return false;
     }
 
+    /**
+     * Helper method to check if the player has a specific item.
+     *
+     * @param itemId The ID of the item to check for.
+     * @return true if the player has the item, false otherwise.
+     */
     private boolean hasItem(String itemId) {
         for (game.Item item : player.getInventory()) {
             if (item.getId().equals(itemId)) {

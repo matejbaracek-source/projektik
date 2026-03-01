@@ -5,15 +5,31 @@ import game.Player;
 import game.GameCharacter;
 import game.Item;
 
+/**
+ * Command for talking to characters in the game.
+ */
 public class Talk implements Command {
     private Player player;
     private GameData data;
 
+    /**
+     * Constructs a Talk command.
+     *
+     * @param player The player initiating the talk.
+     * @param data   The game data containing characters.
+     */
     public Talk(Player player, GameData data) {
         this.player = player;
         this.data = data;
     }
 
+    /**
+     * Executes the talk command.
+     * Facilitates conversation with local or remote characters.
+     *
+     * @param userInput The talk command string (e.g., "mluv karel").
+     * @return The character's response or a status message.
+     */
     @Override
     public String execute(String userInput) {
         String[] parts = userInput.split(" ", 2);

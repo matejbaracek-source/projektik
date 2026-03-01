@@ -3,10 +3,20 @@ package game;
 import java.util.Random;
 import java.util.ArrayList;
 
+/**
+ * Manages risk evaluation and randomization for gameplay mechanics.
+ */
 public class Risk {
     Random rand = new Random();
     ArrayList<Integer> risks = new ArrayList<Integer>();
 
+    /**
+     * Evaluates if a movement to a target location is successful based on risk.
+     *
+     * @param target The target location.
+     * @param player The player performing the move.
+     * @return true if the movement is successful, false if the player is caught.
+     */
     public boolean evaluateMovement(Location target, Player player) {
         // Use the pre-calculated roll stored in the location
         // This makes the risk check deterministic between moves (predictable).
@@ -18,6 +28,11 @@ public class Risk {
         return chance >= modifiedRiskValue;
     }
 
+    /**
+     * Randomizes the danger rolls and risk values for all locations in the game.
+     *
+     * @param gameData The game data containing all locations.
+     */
     public void randomizeRisks(GameData gameData) {
         if (gameData.locations == null)
             return;

@@ -1,11 +1,17 @@
 package Command;
 
-import game.Player;
-
+/**
+ * Command for switching between different movement modes (Normal/Underground).
+ */
 public class SwitchMode implements Command {
-    private Player player;
+    private game.Player player;
 
-    public SwitchMode(Player player) {
+    /**
+     * Constructs a SwitchMode command.
+     *
+     * @param player The player performing the switch.
+     */
+    public SwitchMode(game.Player player) {
         this.player = player;
     }
 

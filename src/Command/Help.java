@@ -1,12 +1,18 @@
 package Command;
 
-import java.util.Set;
-
+/**
+ * Command for displaying all available commands.
+ */
 public class Help implements Command {
 
-    private final Set<String> commandNames;
+    private final java.util.Set<String> commandNames;
 
-    public Help(Set<String> commandNames) {
+    /**
+     * Constructs a Help command.
+     *
+     * @param commandNames The set of registered command names.
+     */
+    public Help(java.util.Set<String> commandNames) {
         this.commandNames = commandNames;
     }
 

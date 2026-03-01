@@ -1,15 +1,23 @@
 package Command;
 
 import game.GameCharacter;
-import game.GameData;
 import game.Location;
 import game.Player;
 
+/**
+ * Command for checking if the neighboring paths are safe.
+ */
 public class CheckSafe implements Command {
     private Player player;
-    private GameData gameData;
+    private game.GameData gameData;
 
-    public CheckSafe(Player player, GameData gameData) {
+    /**
+     * Constructs a CheckSafe command.
+     *
+     * @param player   The player performing the check.
+     * @param gameData The game data containing world info.
+     */
+    public CheckSafe(Player player, game.GameData gameData) {
         this.player = player;
         this.gameData = gameData;
     }
