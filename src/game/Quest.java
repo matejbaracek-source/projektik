@@ -2,9 +2,6 @@ package game;
 
 import java.util.List;
 
-/**
- * Represents a quest or mission in the game.
- */
 public class Quest {
     private String id;
     private String title;
@@ -13,29 +10,14 @@ public class Quest {
     private String assignerId;
     private List<String> requiredItems;
 
-    /**
-     * Gets the unique identifier of the quest.
-     * 
-     * @return The quest ID.
-     */
     public String getId() {
         return id;
     }
 
-    /**
-     * Gets the title of the quest.
-     * 
-     * @return The quest title.
-     */
     public String getTitle() {
         return title;
     }
 
-    /**
-     * Gets a detailed description of the quest goals.
-     * 
-     * @return The quest description.
-     */
     public String getDescription() {
         return description;
     }

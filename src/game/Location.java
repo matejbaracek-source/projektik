@@ -32,29 +32,14 @@ public class Location {
         this.name = name;
     }
 
-    /**
-     * Sets the unique identifier for the location.
-     *
-     * @param id The ID to set.
-     */
     public void setId(String id) {
         this.id = id;
     }
 
-    /**
-     * Sets the display name for the location.
-     *
-     * @param name The name to set.
-     */
     public void setName(String name) {
         this.name = name;
     }
 
-    /**
-     * Sets the neighboring locations accessible from this one.
-     *
-     * @param neighbors List of neighboring location IDs.
-     */
     public void setNeighbors(ArrayList<String> neighbors) {
         this.neighbors = neighbors;
     }
@@ -86,74 +71,34 @@ public class Location {
         return characters;
     }
 
-    /**
-     * Adds an item to this location.
-     *
-     * @param item The item to add.
-     */
     public void addItem(Item item) {
         this.items.add(item);
     }
 
-    /**
-     * Removes an item from this location.
-     *
-     * @param item The item to remove.
-     */
     public void removeItem(Item item) {
         this.items.remove(item);
     }
 
-    /**
-     * Gets the list of items currently in this location.
-     *
-     * @return List of Items.
-     */
     public ArrayList<Item> getItems() {
         return items;
     }
 
-    /**
-     * Gets the unique identifier of the location.
-     *
-     * @return The location ID.
-     */
     public String getId() {
         return id;
     }
 
-    /**
-     * Gets the display name of the location.
-     *
-     * @return The location name.
-     */
     public String getName() {
         return name;
     }
 
-    /**
-     * Gets the list of IDs of neighboring locations.
-     *
-     * @return List of neighbor IDs.
-     */
     public ArrayList<String> getNeighbors() {
         return neighbors;
     }
 
-    /**
-     * Gets the list of items that can be found in this location.
-     *
-     * @return List of item IDs in the loot table.
-     */
     public ArrayList<String> getLootTable() {
         return lootTable;
     }
 
-    /**
-     * Gets the narrative description of the location.
-     *
-     * @return The location description.
-     */
     public String getDescription() {
         return description;
     }
@@ -180,11 +125,6 @@ public class Location {
 
     private int riskValue;
 
-    /**
-     * Gets the risk value associated with entering this location.
-     *
-     * @return The risk value.
-     */
     public int getRiskValue() {
         return riskValue;
     }

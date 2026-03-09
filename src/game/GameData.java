@@ -7,10 +7,6 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
-/**
- * Container for all game-related data loaded from external resources.
- * Includes lists of items, characters, locations, and quests.
- */
 public class GameData {
     public ArrayList<Item> items;
     public ArrayList<GameCharacter> characters;
@@ -53,9 +49,6 @@ public class GameData {
     }
 
     // getting items from each location
-    /**
-     * Initializes items within each location based on their loot tables.
-     */
     private void initLocationItems() {
         if (locations == null)
             return;
@@ -72,9 +65,6 @@ public class GameData {
     }
 
     // adding each character to their home location
-    /**
-     * Adds each character to their designated home location.
-     */
     private void initLocationCharacters() {
         if (characters == null)
             return;
@@ -89,12 +79,6 @@ public class GameData {
     }
 
     // finding right item by their id
-    /**
-     * Finds an item by its unique identifier.
-     *
-     * @param id The ID of the item to find.
-     * @return The Item object if found, null otherwise.
-     */
     public Item findItem(String id) {
         if (items == null)
             return null;
@@ -107,13 +91,6 @@ public class GameData {
     }
 
     // finding right location by their id
-    /**
-     * Finds a location by its unique identifier.
-     *
-     * @param id The ID of the location to find.
-     * @return The Location object if found.
-     * @throws IllegalArgumentException if no location with the given ID exists.
-     */
     public Location findLocation(String id) {
         for (Location l : locations) {
             if (l.getId().equals(id)) {
@@ -123,12 +100,6 @@ public class GameData {
         throw new IllegalArgumentException("Neexistuje lokace s id: " + id);
     }
 
-    /**
-     * Finds a character by its unique identifier.
-     *
-     * @param id The ID of the character to find.
-     * @return The GameCharacter object if found, null otherwise.
-     */
     public GameCharacter findCharacter(String id) {
         if (characters == null)
             return null;

@@ -26,38 +26,18 @@ public class Item {
         this.description = description;
     }
 
-    /**
-     * Gets the unique identifier of the item.
-     *
-     * @return The item ID.
-     */
     public String getId() {
         return id;
     }
 
-    /**
-     * Gets the display name of the item.
-     *
-     * @return The item name.
-     */
     public String getName() {
         return name;
     }
 
-    /**
-     * Gets the type/category of the item.
-     *
-     * @return The item type.
-     */
     public String getType() {
         return type;
     }
 
-    /**
-     * Gets the narrative description of the item.
-     *
-     * @return The item description.
-     */
     public String getDescription() {
         return description;
     }

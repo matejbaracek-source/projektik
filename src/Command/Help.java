@@ -5,14 +5,9 @@ package Command;
  */
 public class Help implements Command {
 
-    private final java.util.Set<String> commandNames;
+    private final Set<String> commandNames;
 
-    /**
-     * Constructs a Help command.
-     *
-     * @param commandNames The set of registered command names.
-     */
-    public Help(java.util.Set<String> commandNames) {
+    public Help(Set<String> commandNames) {
         this.commandNames = commandNames;
     }
 

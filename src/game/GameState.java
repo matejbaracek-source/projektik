@@ -45,16 +45,10 @@ public class GameState {
         return camerasActive;
     }
 
-    /**
-     * Deactivates the security cameras.
-     */
     public static void deactivateCameras() {
         camerasActive = false;
     }
 
-    /**
-     * Activates the security cameras.
-     */
     public static void activateCameras() {
         camerasActive = true;
     }
@@ -79,20 +73,10 @@ public class GameState {
 
     private static boolean codeGiven = false;
 
-    /**
-     * Checks if the access code has been given to the contact.
-     *
-     * @return true if the code was given, false otherwise.
-     */
     public static boolean isCodeGiven() {
         return codeGiven;
     }
 
-    /**
-     * Sets whether the access code has been given.
-     *
-     * @param given true if the code was given, false otherwise.
-     */
     public static void setCodeGiven(boolean given) {
         codeGiven = given;
     }

@@ -1,5 +1,6 @@
 package Command;
 
+import game.GameData;
 import game.Player;
 import game.Location;
 import game.Item;
@@ -10,15 +11,11 @@ import game.Item;
 public class PickUp implements Command {
 
     private final Player player;
+    private final GameData world;
 
-    /**
-     * Constructs a PickUp command.
-     *
-     * @param player The player picking up the item.
-     * @param world  The game data (unused in current implementation).
-     */
-    public PickUp(Player player, game.GameData world) {
+    public PickUp(Player player, GameData world) {
         this.player = player;
+        this.world = world;
     }
 
     @Override

@@ -1,5 +1,6 @@
 package Command;
 
+import game.GameData;
 import game.GameState;
 import game.Player;
 import game.Item;
@@ -11,13 +12,7 @@ public class Use implements Command {
 
     private final Player player;
 
-    /**
-     * Constructs a Use command.
-     *
-     * @param player The player using the item.
-     * @param world  The game data (unused in current constructor).
-     */
-    public Use(Player player, game.GameData world) {
+    public Use(Player player, GameData world) {
         this.player = player;
     }
 

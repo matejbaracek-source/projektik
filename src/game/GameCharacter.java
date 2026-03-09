@@ -19,29 +19,14 @@ public class GameCharacter {
         return id;
     }
 
-    /**
-     * Gets the display name of the character.
-     * 
-     * @return The character name.
-     */
     public String getName() {
         return name;
     }
 
-    /**
-     * Gets the role or title of the character.
-     * 
-     * @return The character role.
-     */
     public String getRole() {
         return role;
     }
 
-    /**
-     * Gets the ID of the character's starting/home location.
-     * 
-     * @return The home location ID.
-     */
     public String getHomeLocationId() {
         return homeLocationId;
     }

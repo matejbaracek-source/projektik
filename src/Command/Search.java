@@ -11,11 +11,6 @@ public class Search implements Command {
 
     private final Player player;
 
-    /**
-     * Constructs a Search command.
-     *
-     * @param player The player searching the location.
-     */
     public Search(Player player) {
         this.player = player;
     }

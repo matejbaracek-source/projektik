@@ -1,6 +1,7 @@
 package Command;
 
 import game.GameCharacter;
+import game.GameData;
 import game.Location;
 import game.Player;
 
@@ -9,15 +10,9 @@ import game.Player;
  */
 public class CheckSafe implements Command {
     private Player player;
-    private game.GameData gameData;
+    private GameData gameData;
 
-    /**
-     * Constructs a CheckSafe command.
-     *
-     * @param player   The player performing the check.
-     * @param gameData The game data containing world info.
-     */
-    public CheckSafe(Player player, game.GameData gameData) {
+    public CheckSafe(Player player, GameData gameData) {
         this.player = player;
         this.gameData = gameData;
     }

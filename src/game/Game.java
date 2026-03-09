@@ -144,11 +144,6 @@ public class Game {
         }
     }
 
-    /**
-     * Checks if the game has ended due to a win or loss state.
-     *
-     * @return true if the game is over, false otherwise.
-     */
     private boolean checkGameOver() {
         if (player.isCaught()) {
             System.out.println("\n--------------------------------------------------");
@@ -177,12 +172,6 @@ public class Game {
         return false;
     }
 
-    /**
-     * Helper method to check if the player has a specific item.
-     *
-     * @param itemId The ID of the item to check for.
-     * @return true if the player has the item, false otherwise.
-     */
     private boolean hasItem(String itemId) {
         for (game.Item item : player.getInventory()) {
             if (item.getId().equals(itemId)) {

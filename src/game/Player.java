@@ -10,6 +10,7 @@ public class Player {
     private Location location;
     private java.util.ArrayList<Item> inventory = new java.util.ArrayList<>();
     private java.util.Set<String> completedQuests = new java.util.HashSet<>();
+    private java.util.Set<String> activeQuests = new java.util.HashSet<>();
     private static final int INVENTORY_CAPACITY = 3;
     private boolean caught = false;
     private PlayerState state = new NormalState();
@@ -41,11 +42,6 @@ public class Player {
         return caught;
     }
 
-    /**
-     * Sets the caught status of the player.
-     *
-     * @param caught true if the player is caught, false otherwise.
-     */
     public void setCaught(boolean caught) {
         this.caught = caught;
     }
@@ -53,12 +49,6 @@ public class Player {
     private MovementStrategy movementStrategy = new NormalMovement();
 
     // adding items to inventory
-    /**
-     * Adds an item to the player's inventory if there is space.
-     *
-     * @param item The item to add.
-     * @return true if the item was added, false if the inventory is full.
-     */
     public boolean addItem(Item item) {
         if (inventory.size() < INVENTORY_CAPACITY) {
             inventory.add(item);
@@ -68,11 +58,6 @@ public class Player {
     }
 
     // removing items from inventory
-    /**
-     * Removes an item from the player's inventory.
-     *
-     * @param item The item to remove.
-     */
     public void removeItem(Item item) {
         inventory.remove(item);
     }
@@ -87,21 +72,10 @@ public class Player {
         return inventory;
     }
 
-    /**
-     * Checks if the player's inventory is at maximum capacity.
-     *
-     * @return true if full, false otherwise.
-     */
     public boolean isInventoryFull() {
         return inventory.size() >= INVENTORY_CAPACITY;
     }
 
-    /**
-     * Checks if the player has an item with the given ID in their inventory.
-     *
-     * @param itemId The ID of the item to check for.
-     * @return true if the item is present, false otherwise.
-     */
     public boolean hasItem(String itemId) {
         for (Item item : inventory) {
             if (item.getId().equals(itemId)) {
@@ -120,11 +94,6 @@ public class Player {
         this.location = location;
     }
 
-    /**
-     * Gets the player's current location.
-     *
-     * @return The current Location.
-     */
     public Location getLocation() {
         return location;
     }
@@ -138,21 +107,11 @@ public class Player {
         this.movementStrategy = movementStrategy;
     }
 
-    /**
-     * Gets the current movement strategy of the player.
-     *
-     * @return The active MovementStrategy.
-     */
     public MovementStrategy getMovementStrategy() {
         return movementStrategy;
     }
 
     // method for switching between movements
-    /**
-     * Toggles between normal and underground movement modes.
-     *
-     * @return A message describing the result of the toggle.
-     */
     public String toggleMovementMode() {
         if (movementStrategy instanceof NormalMovement) {
             // Check if underground passages are unlocked
@@ -202,13 +161,6 @@ public class Player {
     }
 
     // TODO implement this method to quests
-    /**
-     * Uses an item or interacts with an object (stub method).
-     *
-     * @param targetName The name of the target to use/interact with.
-     * @param gameData   The game data.
-     * @return A message describing the result (currently placeholder).
-     */
     public String use(String targetName, GameData gameData) {
         return "Tato funkce není zatím implementována.";
     }

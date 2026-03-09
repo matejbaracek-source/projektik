@@ -1,22 +1,17 @@
 package Command;
 
+import game.GameData;
 import game.Quest;
 
 /**
  * Command for listing all active and completed quests.
  */
 public class Quests implements Command {
-    private game.GameData data;
+    private GameData data;
 
     private game.Player player;
 
-    /**
-     * Constructs a Quests command.
-     *
-     * @param data   The game data containing quest definitions.
-     * @param player The player whose progress is being checked.
-     */
-    public Quests(game.GameData data, game.Player player) {
+    public Quests(GameData data, game.Player player) {
         this.data = data;
         this.player = player;
     }

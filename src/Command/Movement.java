@@ -12,12 +12,6 @@ public class Movement implements Command {
     private final Player player;
     private final GameData world;
 
-    /**
-     * Constructs a Movement command.
-     *
-     * @param player The player performing the movement.
-     * @param world  The game data containing locations.
-     */
     public Movement(Player player, GameData world) {
         this.player = player;
         this.world = world;
@@ -47,11 +41,6 @@ public class Movement implements Command {
         return player.move(targetName, world);
     }
 
-    /**
-     * Movement command does not exit the game.
-     *
-     * @return false.
-     */
     @Override
     public boolean exit() {
         return false;
